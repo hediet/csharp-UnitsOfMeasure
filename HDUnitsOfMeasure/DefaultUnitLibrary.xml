@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UnitLibrary xmlns="http://www.hediet.de/xsd/unitlibrary/1.0">
+  <!-- Meter -->
+  <BaseUnit Name="Meter" Abbr="m" />
+
+  <!-- Area -->
+  <DerivedUnit Name="Are" Abbr="a">
+    <UnitPart Unit="dam" Exponent="2" />
+  </DerivedUnit>
+
+  <ScaledShiftedUnit Name="Hectare" Abbr="ha" Factor="100" UnderlayingUnit="a" />
+  
+  
+  <!-- Volume -->
+  <DerivedUnit Name="Liter" Abbr="l">
+    <UnitPart  Unit="dm" Exponent="3" />
+  </DerivedUnit>
+
+  
+  <!-- Second -->
+  <BaseUnit Name="Second" Abbr="s" />
+
+  <ScaledShiftedUnit Name="Minute" Abbr="min" Factor="60" UnderlayingUnit="s" />
+  <ScaledShiftedUnit Name="Hour" Abbr="h" Factor="60" UnderlayingUnit="min" />
+
+  <DerivedUnit Name="Hertz" Abbr="Hz">
+    <UnitPart  Unit="s" Exponent="-1"/>
+  </DerivedUnit>
+
+  <!-- Meter / Second -->
+  <DerivedUnit Name="Kilometers per Hour" Abbr="kmh">
+    <UnitPart  Unit="km" Exponent="1" />
+    <UnitPart  Unit="h" Exponent="-1"/>
+  </DerivedUnit>
+  
+  <DerivedUnit Name="Meters per Second" Abbr="mps">
+    <UnitPart  Unit="m" Exponent="1" />
+    <UnitPart  Unit="s" Exponent="-1" />
+  </DerivedUnit>
+
+
+
+
+  <!-- Kilogram -->
+  <BaseUnit Name="Kilogram" Abbr="kg"/>
+  
+  <ScaledShiftedUnit Name="Gram" Abbr="g" Factor="0.001" UnderlayingUnit="kg" />
+  
+  
+  <!-- Kelvin -->
+
+  <BaseUnit Name="Kelvin" Abbr="K"/>
+
+  <ScaledShiftedUnit Name="Celsius" Abbr="°C" Factor="1" Offset="273.15" UnderlayingUnit="K" />
+  <ScaledShiftedUnit Name="Celsius" Abbr="°F" Factor="0.55555555555555555555" Offset="255.37222222222222222222" UnderlayingUnit="K" />
+  
+</UnitLibrary>

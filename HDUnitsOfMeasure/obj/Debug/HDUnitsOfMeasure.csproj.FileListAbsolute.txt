@@ -1,0 +1,11 @@
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\bin\Debug\HDUnitsOfMeasure.dll
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\bin\Debug\HDUnitsOfMeasure.pdb
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\obj\Debug\ResolveAssemblyReference.cache
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\obj\Debug\HDUnitsOfMeasure.dll
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\obj\Debug\HDUnitsOfMeasure.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\bin\Debug\HDUnitsOfMeasure.dll
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\bin\Debug\HDUnitsOfMeasure.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\obj\Debug\ResolveAssemblyReference.cache
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\obj\Debug\HDUnitsOfMeasure.dll
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\obj\Debug\HDUnitsOfMeasure.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\bin\Debug\HDUnitsOfMeasure.XML

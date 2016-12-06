@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HDUnitsOfMeasure</name>
+    </assembly>
+    <members>
+        <member name="T:HDLibrary.UnitsOfMeasure.Prefix">
+            <summary>
+            Represents a mathematical prefix like "kilo" or "Mega".
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.Prefix.Get(System.String)">
+            <summary>
+            Gets a prefix by its abbreviation.
+            </summary>
+            <param name="abbreviation">The abbreviation of the prefix.</param>
+            <returns>The associated prefix, if no prefix was found, <c>null</c>.</returns>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.Prefix.Abbreviation">
+            <summary>
+            Gets the abbreviation of the prefix.
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.Prefix.Name">
+            <summary>
+            Gets the full name of the prefix.
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.Prefix.Factor">
+            <summary>
+            Gets the factor of the prefix, e.g. 1000 for "kilo".
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.Prefix.All">
+            <summary>
+            Gets all SI prefixes (http://en.wikipedia.org/wiki/Metric_prefix).
+            </summary>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.Unit">
+            <summary>
+            Represents the base of all units of measure.
+            </summary>
+        </member>
+        <member name="F:HDLibrary.UnitsOfMeasure.Unit.Dimensionless">
+            <summary>
+            The DimensionlessUnit is a special unit which is a neutral element for multiplication and division. 
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.Unit.IsUnit(HDLibrary.UnitsOfMeasure.Unit)">
+            <summary>
+            Checks whether this unit can be converted to <paramref name="targetUnit"/>.
+            </summary>
+            <param name="targetUnit">The target unit.</param>
+            <returns><c>true</c>, if they can be converted, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.Unit.TryConvertTo(HDLibrary.UnitsOfMeasure.Unit,System.Double@)">
+            <summary>
+            Converts <paramref name="value"/> from this unit to <paramref name="targetUnit"/>.
+            </summary>
+            <param name="targetUnit">The target unit.</param>
+            <param name="value">The value to convert.</param>
+            <returns><c>true</c>, if successful, otherwise <c>false</c></returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.Unit.GetTransformationTo(HDLibrary.UnitsOfMeasure.Unit)">
+            <summary>
+            Gets a transformation from this unit to <paramref name="targetUnit"/>
+            </summary>
+            <param name="targetUnit">The target unit.</param>
+            <returns>A transformation to convert quantities from this unit to <paramref name="targetUnit"/></returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.Unit.Equals(System.Object)">
+            <summary>
+            Checks wether this unit is equal to <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The other object.</param>
+            <returns><c>true</c>, if equal, otherwise <c>false</c>. See <see cref="M:HDLibrary.UnitsOfMeasure.Unit.Equals(HDLibrary.UnitsOfMeasure.Unit)"/>.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.Unit.Equals(HDLibrary.UnitsOfMeasure.Unit)">
+            <summary>
+            Checks wether this unit is equal to <paramref name="other"/>.
+            </summary>
+            <param name="other">The other unit.</param>
+            <returns><c>true</c>, if both units have the same coherent unit and their transformation is equal.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.Unit.Pow(System.Int32)">
+            <summary>
+            Performs a power operation.
+            </summary>
+            <example>dm.Pow(3) is equal to liter.</example>
+            <param name="exponent">the exponent.</param>
+            <returns>The new unit.</returns>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.Unit.IsCoherent">
+            <summary>
+            Gets whether this unit is coherent (see http://en.wikipedia.org/wiki/Metric_system#Coherence).
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.Unit.TransformationToCoherent">
+            <summary>
+            Gets a transformation which converts a value in this unit to the coherent unit.
+            For example, the unit "kilometer" will return a transformation to "meter".
+            </summary>
+            <remarks>
+            Because some units (°F) are not proportional to their base unit, derived units assume these nonproportional units as coherent.
+            So °F will return a transformation to K, but km/°F will return a transformation only to m/°F.
+            This is, since the transformation from °F to K can be expressed with K(°F) = a*°F+b and from km to m with m(km) = c*km.
+            So km/°F to m/K would be m/K(km/°F) = m(km)/K(°F) = c*km / (a*°F+b). 
+            Only if b = 0, this expression can be formed to: m/K(km/°F) = c/a * km/°F. Because km/°F is a single value (e.g. 5 km/°F), only in this case
+            this value can be converted to m/K: m/K(5) = c/a * 5. In all other cases, this is not possible, as 5 km/1°F is different from 10 km/2°F.
+            </remarks>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.Unit.Abbreviation">
+            <summary>
+            The abbreviation of this unit.
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.Unit.Name">
+            <summary>
+            The localized name of this unit.
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.ICouldBeUnproportional.IsUnproportional">
+            <summary>
+            Gets whether this unit is unproportional. <c>true</c>, if a proportional transformation to the coherent unit is not possible, otherwise <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.ICouldBeUnproportional.ProportionalTransformationToCoherent">
+            <summary>
+            Gets a proportional transformation to the most possible coherent unit.
+            So k°F (kilo fahrenheit) will be transformed to °F, but not to K (which is the actual coherent unit).
+            </summary>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.PrefixedUnitParser">
+            <summary>
+            Parses the following formats: km, MHz, µs (m, Hz and s have to be registered).
+            All avaible prefixes are defined in <see cref="T:HDLibrary.UnitsOfMeasure.Prefix"/>.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.IUnitParser.ParseUnit(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Parses a unit string.
+            </summary>
+            <param name="unitStr">The string to parse.</param>
+            <param name="resultUnitAbbreviation">The abbreviation of the returned unit. Will be ignored, if unitStr references a registered unit.</param>
+            <param name="resultUnitName">The name of the returned unit. Will be ignored, if unitStr references a registered unit.</param>
+            <param name="throwFormatException">Specifies whether exceptions should be thrown or null should be returned.</param>
+            <returns>The parsed unit, or null if parsing failed and throwFormatException is false.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.PrefixedUnitParser.#ctor(HDLibrary.UnitsOfMeasure.IUnitParser)">
+            <summary>
+            Creates a new PrefixedUnitParser.
+            </summary>
+            <param name="registeredUnitParser">The parser used for resolving the underlaying units.</param>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.RegisteredUnitParser">
+            <summary>
+            A parser which compares the string to parse with all abbreviations of the registered units.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.RegisteredUnitParser.#ctor">
+            <summary>
+            Creates a new RegisteredUnitParser. 1 is registered by default to  <see cref="F:HDLibrary.UnitsOfMeasure.Unit.Dimensionless"/>.
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.RegisteredUnitParser.RegisteredUnits">
+            <summary>
+            All registered units.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.UnitParserExtension.ParseUnit(HDLibrary.UnitsOfMeasure.IUnitParser,System.String)">
+            <summary>
+            Parses the unit string. If unsuccessful, an exception will be thrown.
+            </summary>
+            <param name="parser">this</param>
+            <param name="unitStr">The string to parse.</param>
+            <returns>The parsed unit.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.UnitParserExtension.TryParseUnit(HDLibrary.UnitsOfMeasure.IUnitParser,System.String)">
+            <summary>
+            Parses the unit string. If unsuccessful, no exception will be thrown.
+            </summary>
+            <param name="parser">this</param>
+            <param name="unitStr">The string to parse.</param>
+            <returns>The parsed unit or null if unsuccessful.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.UnitParserExtension.TryParse(HDLibrary.UnitsOfMeasure.IUnitParser,System.String,System.String,System.String)">
+            <summary>
+            Parses the unit string. If unsuccessful, no exception will be thrown.
+            </summary>
+            <param name="parser">this</param>
+            <param name="unitStr">The string to parse.</param>
+            <param name="resultUnitAbbreviation">The abbreviation of the returned unit. Will be ignored, if unitStr references a registered unit.</param>
+            <param name="resultUnitName">The name of the returned unit. Will be ignored, if unitStr references a registered unit.</param>
+            <returns>The parsed unit or null if unsuccessful.</returns>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.ScaledShiftedUnitParser">
+            <summary>
+            Parses the following formats: 60 s; 60 min;
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.ScaledShiftedUnitParser.#ctor(HDLibrary.UnitsOfMeasure.IUnitParser)">
+            <summary>
+            Creates a new ScaledShiftedUnitParser.
+            </summary>
+            <param name="abbreviatedUnitParser">The parser used for resolving the underlaying units.</param>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.CachedUnitParser">
+            <summary>
+            A cached unit parser, which delegates the parsing and caches the result.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.CachedUnitParser.#ctor(HDLibrary.UnitsOfMeasure.IUnitParser)">
+            <summary>
+            Creates a new cached unit parser.
+            </summary>
+            <param name="underlayingUnitParser">The underlaying unit parser.</param>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.CachedUnitParser.ClearCache">
+            <summary>
+            Clears the cache.
+            </summary>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.XmlUnitLibrary">
+            <summary>
+            Imports unit definitions from xml documents to IUnitRegistry objects.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.XmlUnitLibrary.NewDefaultLibrary">
+            <summary>
+            Creates a default unit library, using the inbuilt xml document.
+            </summary>
+            <returns>The library.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.XmlUnitLibrary.#ctor(System.IO.Stream)">
+            <summary>
+            Creates a new >XmlUnitLibrary, loading the xml document from a stream.
+            </summary>
+            <param name="xmlData">The stream</param>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.XmlUnitLibrary.#ctor(System.Xml.XmlReader)">
+            <summary>
+            Creates a new XmlUnitLibrary from the passed xml document.
+            The document has to be compliant with the XSD schema (namespace http://www.hediet.de/xsd/unitlibrary/1.0).
+            </summary>
+            <param name="xmlReader">The xml reader.</param>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.XmlUnitLibrary.LoadTo(HDLibrary.UnitsOfMeasure.IUnitRegistry,HDLibrary.UnitsOfMeasure.IUnitParser)">
+            <summary>
+            Loads all unit definitions within this xml document to the specified IUnitRegistry.
+            Multiple libraries can be loaded into one registry.
+            </summary>
+            <param name="registry">The registry.</param>
+            <param name="parser">The parser used for resolving unit references. The parser should be able to parse all units passed to the registry.</param>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.DerivedUnit">
+            <summary>
+            A derived unit. See http://en.wikipedia.org/wiki/SI_derived_unit.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.DerivedUnit.GetUnitFromParts(System.String,System.String,HDLibrary.UnitsOfMeasure.UnitPart[])">
+            <summary>
+            Gets a new unit from unit parts.
+            </summary>
+            <param name="unitAbbreviation">The abbreviation of the new unit.</param>
+            <param name="unitName">The name of the new unit.</param>
+            <param name="parts">The unit parts.</param>
+            <returns>Unit.DimensionlessUnit, if the length of parts is 0. If the length is 1 and the exponent is 1, the first part is returned, otherwise a DerivedUnit.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.DerivedUnit.GetUnitFromParts(HDLibrary.UnitsOfMeasure.UnitPart[])">
+            <summary>
+            Gets a new unit from unit parts.
+            </summary>
+            <param name="parts">The unit parts.</param>
+            <returns>Unit.DimensionlessUnit, if the length of parts is 0. If the length is 1 and the exponent is 1, the first part is returned, otherwise a DerivedUnit.</returns>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.BaseUnit">
+            <summary>
+            A base unit, which can be only identified by its abbreviation. See http://en.wikipedia.org/wiki/SI_base_unit.
+            </summary>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.DerivedUnitParser">
+            <summary>
+            Parses the following formats: km/h; m^3; A^1*s^1*V^-1*m^-1; A * s / V * m.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.DerivedUnitParser.#ctor(HDLibrary.UnitsOfMeasure.IUnitParser)">
+            <summary>
+            Creates a new DerivedUnitParser.
+            </summary>
+            <param name="abbreviatedUnitParser">The parser to parse all abbreviated units, e.g. m or V.</param>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.UnitPart">
+            <summary>
+            This class represents a part of a derived unit, e.g. km/h or m^3.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.UnitPart.#ctor(HDLibrary.UnitsOfMeasure.Unit,System.Int32)">
+            <summary>
+            Creates a new UnitPart
+            </summary>
+            <param name="unit">The unit of this part</param>
+            <param name="exponent">The exponent of this part</param>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.UnitPart.ToString(System.Boolean,System.Boolean)">
+            <summary>
+            Formats this part into a readable string.
+            </summary>
+            <param name="invertExponent">This parameter inverts the exponent. This is useful if this unit part is part of a denominator.</param>
+            <returns>The formatted string in the following format: unit[^exponent]. The last term is skipped if exponent is 1</returns>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.UnitPart.Unit">
+            <summary>
+            The underlaying unit
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.UnitPart.Exponent">
+            <summary>
+            The exponent of the unit.
+            </summary>
+            <example>
+            An exponent of -2 means 1/Unit^2
+            </example>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.UnitAttribute">
+            <summary>
+            Specifies a unit for the corresponding element
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.UnitAttribute.#ctor(System.String)">
+            <summary>
+            Specifies a unit for the corresponding element
+            </summary>
+            <param name="unit">The unit, e.g. "m" or "Meter"</param>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.UnitDefinitionAttribute">
+            <summary>
+            Defines a new unit
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.UnitDefinitionAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Defines a new base unit
+            </summary>
+            <param name="unitAbbr">The abbreviation of the unit, e.g. "m"</param>
+            <param name="unitName">The name of the unit, e.g. "Meter"</param>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.UnitDefinitionAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Defines a new scaled, shifted or derived unit
+            </summary>
+            <param name="unitAbbr">The abbreviation of the unit, e.g. "m"</param>
+            <param name="unitName">The name of the unit, e.g. "Meter"</param>
+            <param name="definition">The definition, e.g. "1000 m" or "m / s"</param>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.NumericExtension.Meter(System.Int32)">
+            <summary>
+            Specifies the value as meter.
+            Note: No conversion is made!
+            </summary>
+            <param name="value">The value</param>
+            <returns>The value in [m]</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.NumericExtension.Meter(System.Double)">
+            <summary>
+            Specifies the value as meter.
+            Note: No conversion is made!
+            </summary>
+            <param name="value">The value</param>
+            <returns>The value in [m]</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.NumericExtension.Second(System.Int32)">
+            <summary>
+            Specifies the value as second.
+            Note: No conversion is made!
+            </summary>
+            <param name="value">The value</param>
+            <returns>The value in [s]</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.NumericExtension.Second(System.Double)">
+            <summary>
+            Specifies the value as second.
+            Note: No conversion is made!
+            </summary>
+            <param name="value">The value</param>
+            <returns>The value in [s]</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.NumericExtension.Kilogram(System.Int32)">
+            <summary>
+            Specifies the value as kilogram.
+            Note: No conversion is made!
+            </summary>
+            <param name="value">The value</param>
+            <returns>The value in [kg</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.NumericExtension.Kilogram(System.Double)">
+            <summary>
+            Specifies the value as kilogram.
+            Note: No conversion is made!
+            </summary>
+            <param name="value">The value</param>
+            <returns>The value in [kg]</returns>
+        </member>
+        <member name="F:HDLibrary.UnitsOfMeasure.Units.Meter">
+            <summary>
+            1 meter [m]
+            </summary>
+        </member>
+        <member name="F:HDLibrary.UnitsOfMeasure.Units.Second">
+            <summary>
+            1 Second [s]
+            </summary>
+        </member>
+        <member name="F:HDLibrary.UnitsOfMeasure.Units.Kilogram">
+            <summary>
+            1 Kilogram [kg]
+            </summary>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.LinearQuantityTransformation">
+            <summary>
+            Describes a linear transformation f(value) = Factor * value + Offset.
+            </summary>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.QuantityTransformation">
+            <summary>
+            Describes a transformation for quantities. A quantity is a number with an unit.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.QuantityTransformation.Transform(System.Double)">
+            <summary>
+            Transforms a value from source unit to target unit.
+            </summary>
+            <param name="value">The value to transform in the source unit.</param>
+            <returns>The transformed value in the target unit.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.QuantityTransformation.Chain(HDLibrary.UnitsOfMeasure.QuantityTransformation)">
+            <summary>
+            Chains two transformations. This is only possible if this target unit is equal to the others source unit.
+            </summary>
+            <param name="other">The other transformation.</param>
+            <returns>The chained transformation.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.QuantityTransformation.Reverse">
+            <summary>
+            Reverses this transformation, so that reversed(this(value)) = value. The source and target units are exchanged.
+            </summary>
+            <returns>The reversed transformation.</returns>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.QuantityTransformation.SourceUnit">
+            <summary>
+            The source unit.
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.QuantityTransformation.TargetUnit">
+            <summary>
+            The target unit.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.LinearQuantityTransformation.Transform(System.Double)">
+            <summary>
+            Transforms a value from source unit to target unit.
+            </summary>
+            <param name="value">The value to transform in the source unit.</param>
+            <returns>The transformed value in the target unit.</returns>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.LinearQuantityTransformation.Factor">
+            <summary>
+            The factor.
+            </summary>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.LinearQuantityTransformation.Offset">
+            <summary>
+            The offset.
+            </summary>
+        </member>
+        <member name="T:HDLibrary.UnitsOfMeasure.ComposedUnitParser">
+            <summary>
+            A composed parser, which delegates the parsing to multiple other parsers.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.ComposedUnitParser.NewDefaultUnitParser">
+            <summary>
+            Returns a preconfigured composed parser with all necessary parsers.
+            </summary>
+            <remarks>
+            The registered parsers are: RegisteredUnitParser, PrefixedUnitParser, ScaledShiftedUnitParser and DerivedUnitParser.
+            </remarks>
+            <returns>The composed unit parser.</returns>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.ComposedUnitParser.#ctor">
+            <summary>
+            Creates a new, empty composed unit parser.
+            </summary>
+        </member>
+        <member name="M:HDLibrary.UnitsOfMeasure.ComposedUnitParser.GetUnitRegistry">
+            <summary>
+            Gets the first parser within UnitParsers which implements IUnitRegistry.
+            </summary>
+            <returns>The first parser within UnitParsers which implements IUnitRegistry. If no parser is found, null is returned.</returns>
+        </member>
+        <member name="P:HDLibrary.UnitsOfMeasure.ComposedUnitParser.UnitParsers">
+            <summary>
+            All registered parsers.
+            </summary>
+        </member>
+    </members>
+</doc>

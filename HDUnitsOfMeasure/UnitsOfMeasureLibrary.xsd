@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="UnitsOfMeasureLibrary"
+    targetNamespace="http://www.hediet.de/xsd/unitlibrary/1.0" elementFormDefault="qualified"
+    xmlns="http://www.hediet.de/xsd/unitlibrary/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="UnitAbbreviation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The representation of a Unit abbreviation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\S]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:element name="UnitLibrary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          
+          <xs:element name="BaseUnit">
+            <xs:complexType>
+              <xs:attribute name="Name" type="xs:string" />
+              <xs:attribute name="Abbr" type="UnitAbbreviation" />
+            </xs:complexType>
+          </xs:element>
+          
+          <xs:element name="ScaledShiftedUnit">
+            <xs:complexType>
+              <xs:attribute name="Name" type="xs:string" />
+              <xs:attribute name="Abbr" type="UnitAbbreviation" />
+              <xs:attribute name="Factor" type="xs:double" />
+              <xs:attribute name="Offset" use="optional" type="xs:double" />
+              <xs:attribute name="UnderlayingUnit" type="UnitAbbreviation" />
+            </xs:complexType>
+          </xs:element>
+
+          <xs:element name="DerivedUnit">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="UnitPart" minOccurs="1" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:attribute name="Unit" type="UnitAbbreviation" />
+                    <xs:attribute name="Exponent" type="xs:byte" />
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+              <xs:attribute name="Name" type="xs:string" />
+              <xs:attribute name="Abbr" type="UnitAbbreviation" />
+            </xs:complexType>
+          </xs:element>
+          
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

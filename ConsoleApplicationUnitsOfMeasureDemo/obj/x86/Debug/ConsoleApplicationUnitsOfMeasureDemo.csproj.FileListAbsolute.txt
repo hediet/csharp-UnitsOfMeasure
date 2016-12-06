@@ -1,0 +1,15 @@
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\ConsoleApplicationUnitsOfMeasureDemo.exe
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\ConsoleApplicationUnitsOfMeasureDemo.pdb
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\HDUnitsOfMeasure.dll
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\HDUnitsOfMeasure.pdb
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Debug\ConsoleApplicationUnitsOfMeasureDemo.exe
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Debug\ConsoleApplicationUnitsOfMeasureDemo.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Debug\ConsoleApplicationUnitsOfMeasureDemo.exe
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Debug\ConsoleApplicationUnitsOfMeasureDemo.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\ConsoleApplicationUnitsOfMeasureDemo.exe
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\ConsoleApplicationUnitsOfMeasureDemo.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\HDUnitsOfMeasure.dll
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\HDUnitsOfMeasure.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Debug\HDUnitsOfMeasure.xml

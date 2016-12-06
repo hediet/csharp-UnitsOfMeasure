@@ -1,0 +1,10 @@
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\bin\Release\HDUnitsOfMeasure.dll
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\bin\Release\HDUnitsOfMeasure.pdb
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\obj\Release\ResolveAssemblyReference.cache
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\obj\Release\HDUnitsOfMeasure.dll
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\HDUnitsOfMeasure\obj\Release\HDUnitsOfMeasure.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\bin\Release\HDUnitsOfMeasure.dll
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\bin\Release\HDUnitsOfMeasure.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\obj\Release\ResolveAssemblyReference.cache
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\obj\Release\HDUnitsOfMeasure.dll
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\HDUnitsOfMeasure\obj\Release\HDUnitsOfMeasure.pdb

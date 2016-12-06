@@ -1,0 +1,14 @@
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\bin\Release\ConsoleApplicationUnitsOfMeasureDemo.exe
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\bin\Release\ConsoleApplicationUnitsOfMeasureDemo.pdb
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\bin\Release\HDUnitsOfMeasure.dll
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\bin\Release\HDUnitsOfMeasure.pdb
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Release\ResolveAssemblyReference.cache
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Release\ConsoleApplicationUnitsOfMeasureDemo.exe
+H:\Informatik\C#\SharedAssemblies\HDUnitsOfMeasure\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Release\ConsoleApplicationUnitsOfMeasureDemo.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Release\ConsoleApplicationUnitsOfMeasureDemo.exe
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Release\ConsoleApplicationUnitsOfMeasureDemo.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Release\HDUnitsOfMeasure.dll
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\bin\Release\HDUnitsOfMeasure.pdb
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Release\ResolveAssemblyReference.cache
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Release\ConsoleApplicationUnitsOfMeasureDemo.exe
+H:\Informatik\Codeproject\HDUnitsOfMeasure Library\code\ConsoleApplicationUnitsOfMeasureDemo\obj\x86\Release\ConsoleApplicationUnitsOfMeasureDemo.pdb
